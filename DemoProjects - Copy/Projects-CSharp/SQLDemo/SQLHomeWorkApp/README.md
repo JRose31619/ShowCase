@@ -26,5 +26,21 @@ user will be told why it failed.
 (Insert Images here)
 
 ### Validation
-Once users press submit, submitted information will be put through
-validation. If user information fails
+Once users press submit, submitted information will be put into
+models and sent through validation. If user information is unacceptable,
+the static methods will return false. User data will not be sent to the
+class library
+
+(Insert Images here)
+
+### UI Actions
+When validation is complete, data is then passed from the respective
+windows code behind to the UI Actions class. From here data is sent directly 
+to the class library, then to the respective data base. Depending on the action,
+Data may be returned from the data base to the user
+
+(Insert Images here)
+
+## Class Library
+
+
