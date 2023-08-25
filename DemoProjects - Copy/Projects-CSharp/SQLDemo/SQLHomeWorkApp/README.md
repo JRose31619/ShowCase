@@ -35,9 +35,15 @@ class library
 
 ### UI Actions
 When validation is complete, data is then passed from the respective
-windows code behind to the UI Actions class. From here data is sent directly 
-to the class library, then to the respective data base. Depending on the action,
-Data may be returned from the data base to the user
+windows code behind to the UI Actions class. Here, connection to 
+appsettings.JSON is established. The connection string is retreived
+and formatted based on the users selected data base.
+
+(Insert Images here)
+
+The interface for database data is created by passing in the users
+selected database. Users selected action is then ran by the interface
+instance passing in the users submitted data
 
 (Insert Images here)
 
