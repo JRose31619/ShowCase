@@ -51,7 +51,7 @@ instance passing in the users submitted data
 The back end class library has two layers
 of work being done
 
-1. Data Access class for using Dapper to connect to each database
+1. Data Access classes for using Dapper to connect to each database
 2. Data classes responsible for using the data access to perform actions
    with each database
 
