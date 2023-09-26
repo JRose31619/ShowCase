@@ -24,19 +24,18 @@ namespace EDBWPF
 				output = false;
 				return output;
 			}
-			else if (int.TryParse(userInput.EmployerInfo.AccessCode,out int validCode) == false
-					 || userInput.EmployerInfo.AccessCode.Count() > 10)
+			else if (int.TryParse(userInput.EmployerInfo.AccessCode,out int validCode) == false)
 			{
-				MessageBox.Show("Only enter numbers and ensure entered code is less then 10 characters");
+				MessageBox.Show("Only enter numbers for new access codes");
 				output = false;
 				return output;
 			}
-			// changes rolled back here
-			//else if (ValidateSubmittedInfo(userInput) == false)
-			//{
-			//	output = false;
-			//	return output;
-			//}
+			else if (userInput.EmployerInfo.AccessCode != "" && userInput.EmployerInfo.AccessCode.Count() > 10)
+			{
+				MessageBox.Show("Access codes cannot have more than ten numbers");
+				output = false;
+				return output;
+			}
 			else 
 			{
 				output = true;
@@ -158,15 +157,7 @@ namespace EDBWPF
 			return output;
 		}
 		// potential bug?
-		//public static bool ValidateExistingEmployee(string id, string db) 
-		//{
-		//	string firstName = "";
 
-		//	string lastName = "";
-
-		//	bool output = ValidateExistingEmployee(firstName,lastName,id,db);
-
-		//	return output;
 		//}
 		// potential place for refactoring
 		// changes rolled back here
@@ -188,7 +179,11 @@ namespace EDBWPF
 
 			try
 			{
-				if (employeeData.BasicInfo.Id == validId)
+				if (employeeData == null)
+				{
+					throw new NullReferenceException();
+				}
+				else if (employeeData.BasicInfo.Id == validId)
 				{
 					output = true;
 					return output;
@@ -223,15 +218,23 @@ namespace EDBWPF
 
 			FullInfoModel employeeData = action.RetrieveEmployeeInfo(id, db);
 
-			if (employeeData.EmployerInfo == null)
+			try
 			{
-				output = false;
-				return output;
+				if (employeeData.EmployerInfo == null)
+				{
+					output = false;
+					return output;
+				}
+				else
+				{
+					output = true;
+					return output;
+				}
 			}
-			else
+			catch (Exception)
 			{
-				output = true;
-				return output;
+
+				throw;
 			}
 		}
 
@@ -266,7 +269,7 @@ namespace EDBWPF
 			try
 			{
 				if (previousAddress.Id == 0 && successfulParse == true
-				&& employeeData.Addresses[validNumber] != null)
+				&& employeeData.Addresses[validNumber - 1] != null)
 				{
 					output = true;
 
