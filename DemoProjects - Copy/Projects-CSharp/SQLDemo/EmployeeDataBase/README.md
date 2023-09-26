@@ -48,5 +48,16 @@ instance passing in the users submitted data
 (Insert Images here)
 
 ## Class Library
+The back end class library has two layers
+of work being done
 
+1. Data Access classes for using Dapper to connect to each database
+2. Data classes responsible for using the data access to perform actions
+   with each database
+
+## DataBases
+Data is stored between three different relational databases.
+This application uses a SQL server, Sqlite, and a MySql database.
+Each data base stores the same data. The difference between the 
+databases is which one the client has access to. 
 
