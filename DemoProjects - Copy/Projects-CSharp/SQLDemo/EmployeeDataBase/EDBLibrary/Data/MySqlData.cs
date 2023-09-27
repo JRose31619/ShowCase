@@ -103,7 +103,8 @@ namespace EDBLIbrary.Data
 				db.SaveData(sql, new { PersonId = personId, AddressId = address.Id }, _connectionString);
 			}
 
-			if (person.EmployerInfo.Id == 0)
+			if (person.EmployerInfo.Id == 0 && person.EmployerInfo.EmployerTitle != "" &&
+				person.EmployerInfo.AccessCode != "")
 			{
 				sql = "insert into employers (EmployerTitle, AccessCode) values (@EmployerTitle, @AccessCode);";
 
@@ -112,10 +113,13 @@ namespace EDBLIbrary.Data
 				sql = "select Id from employers where EmployerTitle = @EmployerTitle and AccessCode = @AccessCode";
 				person.EmployerInfo.Id = db.LoadData<IdLookupModel, dynamic>(sql,
 				new { person.EmployerInfo.EmployerTitle, person.EmployerInfo.AccessCode }, _connectionString).First().Id;
+
+				sql = "insert into peopleemployerlink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
+				db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
 			}
 
-			sql = "insert into peopleemployerlink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
-			db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
+			//sql = "insert into peopleemployerlink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
+			//db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
 
 			// Identify if the Address exists
 			// Insert into the link table for the address

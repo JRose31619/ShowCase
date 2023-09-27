@@ -56,7 +56,8 @@ namespace EDBWPF
 				AccessCode = accessCodeEntry.Text,
 			};
 
-			if (InputValidation.ValidateNewUserEntry(userInput))
+			if (InputValidation.ValidateSubmittedInfo(userInput) &&
+				InputValidation.ValidateNewUserEntry(userInput))
 			{
 				UIActions action = new UIActions();
 

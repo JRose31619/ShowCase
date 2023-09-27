@@ -24,15 +24,22 @@ namespace EDBWPF
 				output = false;
 				return output;
 			}
-			else if (int.TryParse(userInput.EmployerInfo.AccessCode,out int validCode) == false)
+			else if (userInput.EmployerInfo.AccessCode != "" &&	
+					 int.TryParse(userInput.EmployerInfo.AccessCode,out int validCode) == false)
 			{
 				MessageBox.Show("Only enter numbers for new access codes");
 				output = false;
 				return output;
 			}
-			else if (userInput.EmployerInfo.AccessCode != "" && userInput.EmployerInfo.AccessCode.Count() > 10)
+			else if (userInput.EmployerInfo.AccessCode.Count() > 10)
 			{
 				MessageBox.Show("Access codes cannot have more than ten numbers");
+				output = false;
+				return output;
+			}
+			else if (userInput.EmployerInfo.EmployerTitle.Count() > 50)
+			{
+				MessageBox.Show("Employer titles cannot have more than 50 characters");
 				output = false;
 				return output;
 			}
@@ -125,8 +132,6 @@ namespace EDBWPF
 				newUser.Addresses[0].City,
 				newUser.Addresses[0].State,
 				newUser.Addresses[0].ZipCode,
-				newUser.EmployerInfo.EmployerTitle,
-				newUser.EmployerInfo.AccessCode
 			};
 			bool output = ValidateSubmittedInfo(userInfo);
 
@@ -156,9 +161,7 @@ namespace EDBWPF
 			output = true;
 			return output;
 		}
-		// potential bug?
 
-		//}
 		// potential place for refactoring
 		// changes rolled back here
 		public static bool ValidateExistingEmployee(string id,string db) 
