@@ -30,6 +30,17 @@ namespace EDBWPF.Windows
 
 		private void submitAddressesButton_Click(object sender, RoutedEventArgs e)
 		{
+			List<TextBox> textBoxes = new List<TextBox>() 
+			{
+				newStreetAddressEntry,
+				newCityEntry,
+				newStateEntry,
+				newZipCodeEntry,
+				previousStreetAddressEntry,
+				previousCityEntry,
+				previousStateEntry,
+				previousZipCodeEntry,
+			};
 
 			List<string> submittedInfo = new List<string>() 
 			{
@@ -66,6 +77,8 @@ namespace EDBWPF.Windows
 				};
 
 				action.UpdateAddress(_dataBaseChoice, newAddress);
+
+				CleanUp.ClearTextBoxes(textBoxes);
 			}
         }
 

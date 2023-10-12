@@ -30,10 +30,17 @@ namespace EDBWPF
 
 		private void submitAddressButton_Click(object sender, RoutedEventArgs e)
 		{
+			List<TextBox>textBoxes = new List<TextBox>() 
+			{
+				streetAddressEntry,
+				cityEntry,
+				stateEntry,
+				zipCodeEntry,
+				idEntry,
+			};
+
 			List<string> submittedInfo = new List<string>
 			{
-				firstNameEntry.Text,
-				lastNameEntry.Text,
 				streetAddressEntry.Text,
 				cityEntry.Text,
 				stateEntry.Text,
@@ -46,8 +53,7 @@ namespace EDBWPF
 
 				EmployeeAddressModel newAddress = new EmployeeAddressModel()
 				{
-					FirstName = firstNameEntry.Text,
-					LastName = lastNameEntry.Text,
+					PersonId = int.Parse(idEntry.Text),
 					StreetAddress = streetAddressEntry.Text,
 					City = cityEntry.Text,
 					State = stateEntry.Text,
@@ -57,16 +63,23 @@ namespace EDBWPF
 				UIActions action = new UIActions();
 
 				action.InsertNewAddress(_db, newAddress);
+
+				CleanUp.ClearTextBoxes(textBoxes);
 			}
         }
 
 		private void submitEmployerButton_Click(object sender, RoutedEventArgs e)
 		{
 
+			List<TextBox>textBoxes = new List<TextBox>() 
+			{
+				idEntry,
+				employerTitleEntry,
+				accessCodeEntry,
+			};
+
 			List<string> submittedInfo = new List<string>()
 			{
-				firstNameEntry.Text,
-				lastNameEntry.Text,
 				employerTitleEntry.Text,
 				accessCodeEntry.Text,
 			};
@@ -77,12 +90,6 @@ namespace EDBWPF
 			{
 				FullInfoModel newEmployerInfo = new FullInfoModel();
 
-				newEmployerInfo.BasicInfo = new BasicInfoModel() 
-				{
-					FirstName = firstNameEntry.Text,
-					LastName = lastNameEntry.Text,
-				};
-
 				newEmployerInfo.EmployerInfo = new EmployerModel()
 				{
 					EmployerTitle = employerTitleEntry.Text,
@@ -92,6 +99,8 @@ namespace EDBWPF
 				UIActions action = new UIActions();
 
 				action.InsertNewEmployerInfo(_db,newEmployerInfo);
+
+				CleanUp.ClearTextBoxes(textBoxes);
 			}
 		}
 

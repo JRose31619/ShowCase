@@ -34,6 +34,18 @@ namespace EDBWPF
 		{
 			FullInfoModel userInput = new FullInfoModel();
 
+			List<TextBox> textBoxes = new List<TextBox>() 
+			{
+				streetAddressEntry,
+				cityEntry,
+				stateEntry,
+				zipCodeEntry,
+				firstNameEntry,
+				lastNameEntry,
+				managerTitleEntry,
+				accessCodeEntry
+			};
+
 			userInput.BasicInfo = new BasicInfoModel()
 			{
 				FirstName = firstNameEntry.Text,
@@ -69,6 +81,8 @@ namespace EDBWPF
 			{
 				MessageBox.Show("New user entry failed to enter");
 			}
+
+			CleanUp.ClearTextBoxes(textBoxes);
 		}
 
 		private void returnButton_Click(object sender, RoutedEventArgs e)

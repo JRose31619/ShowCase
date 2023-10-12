@@ -33,10 +33,10 @@ namespace EDBLIbrary.Data
 			new { newAddress.StreetAddress, newAddress.City, newAddress.State, newAddress.ZipCode },
 			_connectionString).First().Id;
 
-			sql = "select Id from Employees where FirstName = @FirstName and LastName = @LastName;";
+			sql = "select Id from Employees where Id = @Id;";
 
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
-			new { newAddress.FirstName, newAddress.LastName },
+			new { Id = newAddress.PersonId },
 			_connectionString).First().Id;
 
 			sql = "insert into PeopleAddresses (PersonId, AddressId) values (@PersonId, @AddressId);";
@@ -98,10 +98,10 @@ namespace EDBLIbrary.Data
 					address.Id = db.LoadData<IdLookupModel, dynamic>(sql,
 						new { address.StreetAddress, address.City, address.State, address.ZipCode },
 						_connectionString).First().Id;
-				}
 
-				sql = "insert into PeopleAddresses (PersonId, AddressId) values (@PersonId, @AddressId);";
-				db.SaveData(sql, new { PersonId = personId, AddressId = address.Id }, _connectionString);
+					sql = "insert into PeopleAddresses (PersonId, AddressId) values (@PersonId, @AddressId);";
+					db.SaveData(sql, new { PersonId = personId, AddressId = address.Id }, _connectionString);
+				}
 			}
 
 			if (person.EmployerInfo.Id == 0 && person.EmployerInfo.EmployerTitle != "" &&
@@ -118,9 +118,6 @@ namespace EDBLIbrary.Data
 				sql = "insert into PeopleEmployerLink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
 				db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
 			}
-
-			//sql = "insert into PeopleEmployerLink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
-			//db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
 
 			// Identify if the Address exists
 			// Insert into the link table for the address

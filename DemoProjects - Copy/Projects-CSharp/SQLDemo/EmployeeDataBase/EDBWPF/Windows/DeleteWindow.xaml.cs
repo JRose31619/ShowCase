@@ -62,7 +62,7 @@ namespace EDBWPF
 				action.DeleteAllInfo(_db,int.Parse(idEntry.Text),employerId);
 			}
         }
-		// left here on 8/8 (lions gate)
+
 		private void deleteEmployerButton_Click(object sender, RoutedEventArgs e)
 		{
 			UIActions action = new UIActions();

@@ -13,6 +13,9 @@ namespace EDBWPF
 {
 	public class InputValidation
     {
+		// ended here on 9/27 working on issues relating to new entries
+		// testing changes here and to back end code where data inserts into
+		// SQL
          public static bool ValidateNewUserEntry(FullInfoModel userInput) 
         {
 			bool output;
@@ -245,7 +248,7 @@ namespace EDBWPF
 		{
 			AddressModel emptyModel = new AddressModel();
 
-			bool output = ValidateExistingAddress(id, db,selectedAddress,emptyModel);
+			bool output = ValidateExistingAddress(id, db,selectedAddress,emptyModel,true);
 
 			return output;
 		}
@@ -253,13 +256,19 @@ namespace EDBWPF
 		{
 			string selectedAddress = "";
 
-			bool output = ValidateExistingAddress(id,db,selectedAddress,address);
+			bool output = ValidateExistingAddress(id,db,selectedAddress,address,false);
 
 			return output;
 		}
-		// potential place for refactor
-		// changes rolled back here
-		public static bool ValidateExistingAddress(string id,string db,string selectedAddress,AddressModel previousAddress) 
+		// left here on 10/11
+		// bug testing delete functions
+		// bug testing validate existing address method
+		// for both delete and read calls
+		public static bool ValidateExistingAddress(string id,
+											 string db,
+											 string selectedAddress,
+											 AddressModel previousAddress,
+											 bool hasSelectedAddress) 
 		{
 			bool output = false;
 
@@ -267,12 +276,30 @@ namespace EDBWPF
 
 			FullInfoModel employeeData = action.RetrieveEmployeeInfo(id, db);
 
-			bool successfulParse = int.TryParse(selectedAddress, out int validNumber);
+			int validNumber;
+
+			bool successfulParse = int.TryParse(selectedAddress, out validNumber);
+
+			if (successfulParse == false && selectedAddress != "" &&
+				hasSelectedAddress == true)
+			{
+				MessageBox.Show("Selected address is not a valid number");
+				
+				return output;
+			}
+			else if (successfulParse == false && selectedAddress == "" &&
+					 hasSelectedAddress == true)
+			{
+				MessageBox.Show("Address selection is empty. Please enter a number");
+
+				return output;
+			}
 
 			try
 			{
 				if (previousAddress.Id == 0 && successfulParse == true
-				&& employeeData.Addresses[validNumber - 1] != null)
+				&& employeeData.Addresses[validNumber - 1] != null && 
+				hasSelectedAddress == true)
 				{
 					output = true;
 
@@ -282,21 +309,9 @@ namespace EDBWPF
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
+
+				return output;
 			}
-
-			//if (previousAddress.Id == 0)
-			//{
-			//	for (int i = 0; i < 4; i++)
-			//	{
-			//		int address = int.Parse(selectedAddress);
-			//		if (address == i && employeeData.Addresses[i - 1] != null)
-			//		{
-			//			output = true;
-
-			//			return output;
-			//		}
-			//	}
-			//}
 
 			foreach (var address in employeeData.Addresses)
 			{
