@@ -195,6 +195,7 @@ namespace EDBLIbrary.Data
 			{
 				RemoveEmployerInfo(companyId, employerId);
 			}
+
 			string sql = "select AddressId from dbo.PeopleAddress where PersonId = @PersonId";
 
 			List<AddressIdModel> addressIds = db.LoadData<AddressIdModel, dynamic>(sql,

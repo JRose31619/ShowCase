@@ -43,8 +43,10 @@ namespace EDBWPF
 
 			return sql;
 		}
-		// refactor to have this method anywhere that needs to pull from sql
-		// left here on 8/19. debating on how to implement try catch blocks
+		// left here on 10/12 double checking that retrieve employee info is being used 
+		// every where correctly
+		// then check to see if sqlite and my sql data are also working correctly
+		// hopefully this app will be done then. fingers crossed
 		public FullInfoModel RetrieveEmployeeInfo(string id,string db) 
 		{
 			FullInfoModel employeeInfo = new FullInfoModel();
@@ -130,8 +132,11 @@ namespace EDBWPF
 			ISqlData sql = CreateSqlData(db);
 
 			FullInfoModel employeeData = sql.GetContactById(int.Parse(id));
-
-			if (int.Parse(id) == employeeData.BasicInfo.Id)
+			if (employeeData.EmployerInfo == null)
+			{
+				return output;
+			}
+			else if (int.Parse(id) == employeeData.BasicInfo.Id)
 			{
 				output = employeeData.EmployerInfo.Id;
 				return output;

@@ -211,7 +211,7 @@ namespace EDBWPF
 		// potential place for refactor
 		public static bool ValidateExistingEmployerInfo(string id,string db) 
 		{
-			bool output;
+			bool output = false;
 
 			if (int.TryParse(id, out int validId) == false)
 			{
@@ -237,10 +237,11 @@ namespace EDBWPF
 					return output;
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				MessageBox.Show(ex.Message);
 
-				throw;
+				return output;
 			}
 		}
 
@@ -260,10 +261,7 @@ namespace EDBWPF
 
 			return output;
 		}
-		// left here on 10/11
-		// bug testing delete functions
-		// bug testing validate existing address method
-		// for both delete and read calls
+
 		public static bool ValidateExistingAddress(string id,
 											 string db,
 											 string selectedAddress,

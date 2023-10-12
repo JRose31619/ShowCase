@@ -46,7 +46,7 @@ namespace EDBWPF
 
 			Close();
         }
-		// changes were rolled back here
+
 		private void submitButton_Click(object sender, RoutedEventArgs e)
 		{
 			UIActions action = new UIActions();
