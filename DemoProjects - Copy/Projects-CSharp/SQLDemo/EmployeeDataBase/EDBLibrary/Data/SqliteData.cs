@@ -17,7 +17,6 @@ namespace EDBLIbrary.Data
 			_connectionString = connectionString;
 		}
 
-
 		public void AddNewAddress(EmployeeAddressModel newAddress)
 		{
 			string sql = @"insert into Addresses (StreetAddress, City, State, ZipCode) 

@@ -35,7 +35,7 @@ namespace EDBLIbrary.Data
 			sql = "select Id from employees where Id = @Id";
 
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
-			new { newAddress.PersonId },
+			new { Id = newAddress.PersonId },
 			_connectionString).First().Id;
 
 			sql = "insert into peopleaddress (PersonId, AddressId) values (@PersonId, @AddressId);";
@@ -142,8 +142,8 @@ namespace EDBLIbrary.Data
 
 			sql = @"select a.* 
 					from addresses a
-					inner join peopleaddress pa on pa.addressId = a.Id
-					where pa.personId = @Id";
+					inner join peopleaddress pa on pa.AddressId = a.Id
+					where pa.PersonId = @Id";
 
 			output.Addresses = db.LoadData<AddressModel, dynamic>(sql, new { Id = id }, _connectionString);
 

@@ -13,9 +13,13 @@ namespace EDBWPF
 {
 	public class InputValidation
     {
-		// ended here on 9/27 working on issues relating to new entries
-		// testing changes here and to back end code where data inserts into
-		// SQL
+		// left here on 10/13
+		// bug testing is almost done.
+		// Works as expected so far, now
+		// have to try and brick it and see if it breaks
+		// should only have one, maybe two more days of staring
+		// at this app. knock on wood
+
          public static bool ValidateNewUserEntry(FullInfoModel userInput) 
         {
 			bool output;

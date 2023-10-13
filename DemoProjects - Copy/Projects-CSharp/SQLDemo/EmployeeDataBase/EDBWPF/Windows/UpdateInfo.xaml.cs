@@ -46,12 +46,17 @@ namespace EDBWPF.Windows
 			Close();
 		}
 
-		// Remeber to fix this, has same problem as employer button
 		private void submitNameButton_Click(object sender, RoutedEventArgs e)
 		{
 			string id = idEntry.Text;
 
 			UIActions action = new UIActions();
+
+			List<TextBox> textBoxes = new List<TextBox>() 
+			{
+				firstNameEntry,
+				lastNameEntry
+			};
 
 			BasicInfoModel newName = new BasicInfoModel()
 			{
@@ -65,6 +70,8 @@ namespace EDBWPF.Windows
 				newName.Id = action.RetrievePrimaryKey(id, _db);
 
 				action.UpdateName(_db, newName);
+
+				CleanUp.ClearTextBoxes(textBoxes);
 			}
 		}
 
@@ -72,6 +79,12 @@ namespace EDBWPF.Windows
 		{
 			string id = idEntry.Text;
 			UIActions action = new UIActions();
+
+			List<TextBox> textBoxes = new List<TextBox>()
+			{
+				newTitleEntry,
+				newAccessCodeEntry
+			};
 
 			EmployerModel newEmployerInfo = new EmployerModel()
 			{
@@ -85,9 +98,9 @@ namespace EDBWPF.Windows
 				newEmployerInfo.Id = action.RetreiveEmployerKey(id, _db);
 
 				action.UpdateEmployerInfo(_db, newEmployerInfo);
+
+				CleanUp.ClearTextBoxes(textBoxes);
 			}
-
-
 		}
 	}
 }
