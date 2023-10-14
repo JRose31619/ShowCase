@@ -66,6 +66,10 @@ namespace EDBWPF
 
 				CleanUp.ClearTextBoxes(textBoxes);
 			}
+			else
+			{
+				MessageBox.Show("New address information failed to enter");
+			}
         }
 
 		private void submitEmployerButton_Click(object sender, RoutedEventArgs e)
@@ -90,6 +94,11 @@ namespace EDBWPF
 			{
 				FullInfoModel newEmployerInfo = new FullInfoModel();
 
+				newEmployerInfo.BasicInfo = new BasicInfoModel() 
+				{
+					Id = int.Parse(idEntry.Text)
+				};
+
 				newEmployerInfo.EmployerInfo = new EmployerModel()
 				{
 					EmployerTitle = employerTitleEntry.Text,
@@ -101,6 +110,10 @@ namespace EDBWPF
 				action.InsertNewEmployerInfo(_db,newEmployerInfo);
 
 				CleanUp.ClearTextBoxes(textBoxes);
+			}
+			else
+			{
+				MessageBox.Show("New employer information failed to enter");
 			}
 		}
 

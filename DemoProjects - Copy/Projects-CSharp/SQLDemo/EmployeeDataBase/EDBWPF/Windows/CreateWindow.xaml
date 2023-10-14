@@ -50,7 +50,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
             <TextBlock>City</TextBlock>
-            <TextBox x:Name="cityEntry" Margin="0 15 0 0" MaxLength="25" 
+            <TextBox x:Name="cityEntry" Margin="0 15 0 0" MaxLength="50" 
              Width="150" HorizontalAlignment="Left" FontSize="16">
             </TextBox>
         </StackPanel>

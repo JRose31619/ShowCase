@@ -27,11 +27,11 @@
 
                 <TextBlock Text="First" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
                 <TextBox x:Name="firstNameEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
                 <TextBlock Text="Last" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
                 <TextBox x:Name="lastNameEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
                 <Button x:Name="submitNameButton" Height="50" Width="50" Margin="0 15 0 0"
                     Click="submitNameButton_Click">Submit
@@ -45,7 +45,7 @@
 
                 <TextBlock Text="Id" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
                 <TextBox x:Name="idEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="50"/>
+                     FontSize="16" Width="50" MaxLength="50"/>
 
                 <TextBlock Text="(Company Id required for all update actions. The Id will not change)"
                            TextWrapping="Wrap" FontSize="16">
@@ -71,11 +71,11 @@
 
                 <TextBlock Text="Title" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
                 <TextBox x:Name="newTitleEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
                 <TextBlock Text="AccessCode" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
                 <TextBox x:Name="newAccessCodeEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
                 <Button x:Name="submitEmployerButton" Height="50" Width="50" Margin="0 15 0 0"
                     Click="submitEmployerButton_Click">Submit

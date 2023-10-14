@@ -60,10 +60,10 @@ namespace EDBLIbrary.Data
 			new { newEmployerInfo.EmployerInfo.EmployerTitle, newEmployerInfo.EmployerInfo.AccessCode },
 			_connectionString).First().Id;
 
-			sql = "select Id from dbo.Employees where FirstName = @FirstName and LastName = @LastName;";
+			sql = "select Id from dbo.Employees where Id = @Id";
 
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
-			new { newEmployerInfo.BasicInfo.FirstName, newEmployerInfo.BasicInfo.LastName },
+			new {newEmployerInfo.BasicInfo.Id},
 			_connectionString).First().Id;
 
 			sql = "insert into dbo.PeopleEmployerLink (PersonId, EmployerTId) values (@PersonId, @Id);";

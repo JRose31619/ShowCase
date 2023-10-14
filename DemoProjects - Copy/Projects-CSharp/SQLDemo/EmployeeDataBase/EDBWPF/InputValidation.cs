@@ -13,13 +13,10 @@ namespace EDBWPF
 {
 	public class InputValidation
     {
-		// left here on 10/13
-		// bug testing is almost done.
-		// Works as expected so far, now
-		// have to try and brick it and see if it breaks
-		// should only have one, maybe two more days of staring
-		// at this app. knock on wood
-
+		// left here on 10/14
+		// bug testing is done for sql server
+		// now to test sqlite and mysql
+		// hopefully i'll be done with this soon
          public static bool ValidateNewUserEntry(FullInfoModel userInput) 
         {
 			bool output;
@@ -238,6 +235,9 @@ namespace EDBWPF
 				else
 				{
 					output = true;
+
+					MessageBox.Show("This user already has employer information");
+
 					return output;
 				}
 			}

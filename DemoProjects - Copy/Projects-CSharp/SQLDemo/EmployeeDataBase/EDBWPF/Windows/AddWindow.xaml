@@ -26,19 +26,19 @@
 
             <TextBlock Text="Street" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="streetAddressEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <TextBlock Text="City" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="cityEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <TextBlock Text="State" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="stateEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <TextBlock Text="ZipCode" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="zipCodeEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <Button x:Name="submitAddressButton" Height="50" Width="50"
                     Margin="0 15 0 0" Click="submitAddressButton_Click">Submit
@@ -54,7 +54,7 @@
 
             <TextBlock Text="Id" HorizontalAlignment="Center" FontSize="20" Padding="0 0 0 10"/>
             <TextBox x:Name="idEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="50"/>
+                     FontSize="16" Width="50" MaxLength="50"/>
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" Margin="0 5 0 0">
@@ -64,11 +64,11 @@
 
             <TextBlock Text="Title" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="employerTitleEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <TextBlock Text="Access Code" HorizontalAlignment="Center" FontSize="20" Padding="0 20 0 10"/>
             <TextBox x:Name="accessCodeEntry" HorizontalAlignment="Center" VerticalAlignment="Center"
-                     FontSize="16" Width="150"/>
+                     FontSize="16" Width="150" MaxLength="50"/>
 
             <Button x:Name="submitEmployerButton" Height="50" Width="50" Margin="0 15 0 0"
                     Click="submitEmployerButton_Click">

@@ -55,7 +55,8 @@ namespace EDBLIbrary.Data
 			newEmployerInfo.EmployerInfo.Id = db.LoadData<IdLookupModel, dynamic>(sql,
 			new { newEmployerInfo.EmployerInfo.EmployerTitle, newEmployerInfo.EmployerInfo.AccessCode },
 			_connectionString).First().Id;
-
+			// change this from using the first and last name to using
+			// the employees primary Id in the employees table
 			sql = "select Id from employees where FirstName = @FirstName and LastName = @LastName;";
 
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
