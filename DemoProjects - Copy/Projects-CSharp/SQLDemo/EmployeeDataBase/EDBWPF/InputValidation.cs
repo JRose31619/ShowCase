@@ -13,11 +13,11 @@ namespace EDBWPF
 {
 	public class InputValidation
     {
-		// left here on 10/14
-		// bug testing is done for sql server
-		// now to test sqlite and mysql
-		// hopefully i'll be done with this soon
-         public static bool ValidateNewUserEntry(FullInfoModel userInput) 
+		// Left here on 10/17
+		// As far as I can tell bug testing is done
+		// I just have to make a sweep for code comments
+		// and finish the documentation and this'll be done
+        public static bool ValidateNewUserEntry(FullInfoModel userInput) 
         {
 			bool output;
 
@@ -166,8 +166,6 @@ namespace EDBWPF
 			return output;
 		}
 
-		// potential place for refactoring
-		// changes rolled back here
 		public static bool ValidateExistingEmployee(string id,string db) 
 		{
 			bool output = false;
@@ -209,7 +207,7 @@ namespace EDBWPF
 
 			return output;
 		}
-		// potential place for refactor
+
 		public static bool ValidateExistingEmployerInfo(string id,string db) 
 		{
 			bool output = false;

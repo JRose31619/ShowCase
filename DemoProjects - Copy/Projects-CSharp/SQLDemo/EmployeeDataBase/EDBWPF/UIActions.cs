@@ -43,10 +43,7 @@ namespace EDBWPF
 
 			return sql;
 		}
-		// left here on 10/12 double checking that retrieve employee info is being used 
-		// every where correctly
-		// then check to see if sqlite and my sql data are also working correctly
-		// hopefully this app will be done then. fingers crossed
+
 		public FullInfoModel RetrieveEmployeeInfo(string id,string db) 
 		{
 			FullInfoModel employeeInfo = new FullInfoModel();

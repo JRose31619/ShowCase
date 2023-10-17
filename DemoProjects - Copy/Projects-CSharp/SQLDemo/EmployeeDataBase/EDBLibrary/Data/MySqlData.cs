@@ -55,12 +55,11 @@ namespace EDBLIbrary.Data
 			newEmployerInfo.EmployerInfo.Id = db.LoadData<IdLookupModel, dynamic>(sql,
 			new { newEmployerInfo.EmployerInfo.EmployerTitle, newEmployerInfo.EmployerInfo.AccessCode },
 			_connectionString).First().Id;
-			// change this from using the first and last name to using
-			// the employees primary Id in the employees table
-			sql = "select Id from employees where FirstName = @FirstName and LastName = @LastName;";
+
+			sql = "select Id from employees where Id = @Id;";
 
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
-			new { newEmployerInfo.BasicInfo.FirstName, newEmployerInfo.BasicInfo.LastName },
+			new { newEmployerInfo.BasicInfo.Id},
 			_connectionString).First().Id;
 
 			sql = "insert into peopleemployerLink (PersonId, EmployerTId) values (@PersonId, @Id);";
