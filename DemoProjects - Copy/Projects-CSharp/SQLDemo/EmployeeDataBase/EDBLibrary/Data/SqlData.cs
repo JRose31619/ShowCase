@@ -171,10 +171,6 @@ namespace EDBLIbrary.Data
 		}
 		public void RemoveAddressFromPerson(int personId, int addressId)
 		{
-			// Find all usages of the addressId
-			// If 1, delete the link and address
-			// If > 1, delete link fo the person
-
 			string sql = "select Id, PersonId, AddressId from dbo.PeopleAddress where AddressId = @AddressId;";
 			var links = db.LoadData<TableLinkIdModel, dynamic>(sql,
 				new { AddressId = addressId },
@@ -236,8 +232,6 @@ namespace EDBLIbrary.Data
 			{
 				throw new Exception("No employer records found");
 			}
-			// Delete record from employer table
-			// Delete record from Link table
 		}
 		public void UpdateEmployerStatus(EmployerModel newEmployerInfo)
 		{

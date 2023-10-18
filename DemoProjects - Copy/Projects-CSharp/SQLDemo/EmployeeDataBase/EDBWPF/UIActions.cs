@@ -43,32 +43,6 @@ namespace EDBWPF
 
 			return sql;
 		}
-
-		public FullInfoModel RetrieveEmployeeInfo(string id,string db) 
-		{
-			FullInfoModel employeeInfo = new FullInfoModel();
-
-			int idValid = int.Parse(id);
-
-			ISqlData sql = CreateSqlData(db);
-
-			try
-			{
-				employeeInfo = sql.GetContactById(idValid);
-				if (employeeInfo == null)
-				{
-					throw new Exception("No entry exists with the Id provided");
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-				
-			}
-
-			return employeeInfo;
-		}
-
 		public void DeleteAddress(string db, string userId, AddressModel selectedAddress) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -77,7 +51,6 @@ namespace EDBWPF
 
 			MessageBox.Show("Address deleted successfully!");
 		}
-
 		public void DeleteAllInfo(string db, int companyId, int employerId) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -86,7 +59,6 @@ namespace EDBWPF
 
 			MessageBox.Show("All employee information deleted successfully!");
 		}
-
 		public void DeleteEmployerInfo(int companyId,int employerId, string db) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -95,15 +67,6 @@ namespace EDBWPF
 
 			MessageBox.Show("Employer information was deleted successfully!");
 		}
-
-		public void InsertNewUser(string db,FullInfoModel newUser) 
-		{
-
-			ISqlData sql = CreateSqlData(db);
-
-			sql.CreateEntry(newUser);
-		}
-
 		public void InsertNewAddress(string db, EmployeeAddressModel newAddress) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -112,7 +75,6 @@ namespace EDBWPF
 
 			MessageBox.Show("New address added successfully!");
 		}
-
 		public void InsertNewEmployerInfo(string db, FullInfoModel newEmployerInfo) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -121,51 +83,14 @@ namespace EDBWPF
 
 			MessageBox.Show("New employer information added successfully!");
 		}
-
-		public int RetreiveEmployerKey(string id, string db) 
+		public void InsertNewUser(string db, FullInfoModel newUser)
 		{
-			int output = 0;
 
 			ISqlData sql = CreateSqlData(db);
 
-			FullInfoModel employeeData = sql.GetContactById(int.Parse(id));
-			if (employeeData.EmployerInfo == null)
-			{
-				return output;
-			}
-			else if (int.Parse(id) == employeeData.BasicInfo.Id)
-			{
-				output = employeeData.EmployerInfo.Id;
-				return output;
-			}
-			else
-			{
-				// do something different here
-				throw new Exception("Given id didn't matched retrieved id");
-			}
+			sql.CreateEntry(newUser);
 		}
-
-		public int RetrievePrimaryKey(string id, string db) 
-		{
-			int output = 0;
-
-			ISqlData sql = CreateSqlData(db);
-
-			FullInfoModel employeeData = sql.GetContactById(int.Parse(id));
-
-			if (int.Parse(id) == employeeData.BasicInfo.Id) 
-			{
-				output = employeeData.BasicInfo.Id;
-				return output;
-			}
-			else 
-			{
-				// do something different here
-				throw new Exception("Given id didn't matched retrieved id");
-			}
-		}
-
-		public int RetrieveAddressKey(string id, string db, AddressModel previousAddress) 
+		public int RetrieveAddressKey(string id, string db, AddressModel previousAddress)
 		{
 			int output = 0;
 
@@ -191,7 +116,69 @@ namespace EDBWPF
 
 			return output;
 		}
+		public FullInfoModel RetrieveEmployeeInfo(string id, string db)
+		{
+			FullInfoModel employeeInfo = new FullInfoModel();
 
+			int idValid = int.Parse(id);
+
+			ISqlData sql = CreateSqlData(db);
+
+			try
+			{
+				employeeInfo = sql.GetContactById(idValid);
+				if (employeeInfo == null)
+				{
+					throw new Exception("No entry exists with the Id provided");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+
+			}
+
+			return employeeInfo;
+		}
+		public int RetreiveEmployerKey(string id, string db) 
+		{
+			int output = 0;
+
+			ISqlData sql = CreateSqlData(db);
+
+			FullInfoModel employeeData = sql.GetContactById(int.Parse(id));
+			if (employeeData.EmployerInfo == null)
+			{
+				return output;
+			}
+			else if (int.Parse(id) == employeeData.BasicInfo.Id)
+			{
+				output = employeeData.EmployerInfo.Id;
+				return output;
+			}
+			else
+			{
+				throw new Exception("Given id didn't matched retrieved id");
+			}
+		}
+		public int RetrievePrimaryKey(string id, string db) 
+		{
+			int output = 0;
+
+			ISqlData sql = CreateSqlData(db);
+
+			FullInfoModel employeeData = sql.GetContactById(int.Parse(id));
+
+			if (int.Parse(id) == employeeData.BasicInfo.Id) 
+			{
+				output = employeeData.BasicInfo.Id;
+				return output;
+			}
+			else 
+			{
+				throw new Exception("Given id didn't matched retrieved id");
+			}
+		}
 		public void UpdateAddress(string db, AddressModel newAddress) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -200,7 +187,6 @@ namespace EDBWPF
 
 			MessageBox.Show("Address updated successfully!");
 		}
-
 		public void UpdateEmployerInfo(string db, EmployerModel newEmployerInfo) 
 		{
 			ISqlData sql = CreateSqlData(db);
@@ -209,7 +195,6 @@ namespace EDBWPF
 
 			MessageBox.Show("Employer information updated successfully!");
 		}
-
 		public void UpdateName(string db, BasicInfoModel newName) 
 		{
 			ISqlData sql = CreateSqlData(db);

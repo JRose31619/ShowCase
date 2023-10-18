@@ -67,23 +67,17 @@ namespace EDBLIbrary.Data
 		}
 		public void CreateEntry(FullInfoModel person)
 		{
-			// Save the basic person
 			string sql = "insert into Employees (FirstName, LastName) values (@FirstName, @LastName);";
 			db.SaveData(sql,
 						new { person.BasicInfo.FirstName, person.BasicInfo.LastName },
 						_connectionString);
 
-			// Get the Id of the person
 
 			sql = "select Id from Employees where FirstName = @FirstName and LastName = @LastName;";
 			int personId = db.LoadData<IdLookupModel, dynamic>(sql,
 				new { person.BasicInfo.FirstName, person.BasicInfo.LastName },
 				_connectionString).First().Id;
 
-			// go over the Id of every address in the Addresses list property
-			// see if the id for each is == 0. meaning the id hasnt been set yet
-			// if it hasnt been set yet then insert the address data into the table
-			// then load the data again to set the Model id to the id made in the table
 			foreach (var address in person.Addresses)
 			{
 				if (address.Id == 0)
@@ -117,12 +111,6 @@ namespace EDBLIbrary.Data
 				sql = "insert into PeopleEmployerLink (PersonId, EmployerTId) values (@PersonId, @EmployerTId);";
 				db.SaveData(sql, new { PersonId = personId, EmployerTId = person.EmployerInfo.Id }, _connectionString);
 			}
-
-			// Identify if the Address exists
-			// Insert into the link table for the address
-			// Insert the new address, if not, get the Id
-			// Then do the link table insert
-			// Do the same for the Employer info
 		}
 		public FullInfoModel GetContactById(int id)
 		{
@@ -160,10 +148,6 @@ namespace EDBLIbrary.Data
 		}
 		public void RemoveAddressFromPerson(int personId, int addressId)
 		{
-			// Find all usages of the addressId
-			// If 1, delete the link and address
-			// If > 1, delete link fo the person
-
 			string sql = "select Id, PersonId, AddressId from PeopleAddresses where AddressId = @AddressId;";
 			var links = db.LoadData<TableLinkIdModel, dynamic>(sql,
 				new { AddressId = addressId },
