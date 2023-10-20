@@ -16,6 +16,8 @@ When the application starts, the user is brought to the home window.
 They select which data base they would like to work with. Then
 select their desired action
 
+![HomeWindow](https://github.com/JRose31619/ShowCase/assets/135455213/0df92b07-17ef-4320-a59b-58a3662e5a18)
+
 (Insert images here)
 
 On the selected actions window, the user fills out the corresponding
