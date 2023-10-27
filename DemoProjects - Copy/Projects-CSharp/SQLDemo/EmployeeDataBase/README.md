@@ -52,8 +52,8 @@ if the information was successfully added or not.
 ### Read
 The read window allows user to read data from a selected datebase.
 Users will enter the Id of the entry they would like to see. Once
-submitted, the application will either show the user the entered 
-entry, or tell them it could not be found. The reason for why will
+submitted, the application will either show the entry entered by
+the user, or tell them it could not be found. The reason for why will
 be stated to the user.
 
 ![ReadSuccess](https://github.com/JRose31619/ShowCase/assets/135455213/db060ae8-b053-4dd8-a364-20b1a5634cbb)
@@ -65,14 +65,37 @@ address they would like to pull up. If the information entered
 is incorrect, the search will fail and the application will state
 why it fail.
 
-(Insert Images Here)
+![AddressSuccess](https://github.com/JRose31619/ShowCase/assets/135455213/25a7d7a1-388d-43ab-9bad-8a64f8acb1e2)
+![AddressFailure](https://github.com/JRose31619/ShowCase/assets/135455213/50096d2d-f25d-4ce9-9a6c-7a516c16dc5b)
+
 ### Update
+Here, users can make changes to already existing entries.
+Users can make changes to the first and last names, employer
+information, and addresses.
 
+![UpdateName](https://github.com/JRose31619/ShowCase/assets/135455213/2f898ad8-c3ba-4e58-8429-a78c5e86ec94)
+![UpdateEmployer](https://github.com/JRose31619/ShowCase/assets/135455213/3b9051a2-c26b-4fdb-90d3-7b1bae49a1d4)
+![UpdateFailure](https://github.com/JRose31619/ShowCase/assets/135455213/9fcfbd33-9b5b-4a3e-a2cf-3f729ddf4143)
 
-(Insert Images Here)
+In order to make changes to 
+specfic addresses the user will have to enter the information
+of the address they would like to change. Then the alterations 
+to said address
+
+![AddressUpdateSuccess](https://github.com/JRose31619/ShowCase/assets/135455213/b9beab5c-dde6-4baa-8f66-d5a09371ba34)
+![AddressUpdateFailure](https://github.com/JRose31619/ShowCase/assets/135455213/bb9ca9ca-61ee-4794-923a-3da961085b9f)
+
 ### Delete
+Data can be removed from any database here. Each piece
+of data can indivudally be deleted from an entry.
+All data can also be deleted at the same time.
+**WARNING, ONCE DELETED, DATA CAN NOT BE RECOVERED.
+USE DELETE ACTIONS WITH CAUTION**
 
-(Insert Images Here)
+![DeleteAddress](https://github.com/JRose31619/ShowCase/assets/135455213/70040d86-748c-433e-9241-45c191acf35f)
+![DeleteEmployer](https://github.com/JRose31619/ShowCase/assets/135455213/04077893-a2b2-46ab-9ee2-95a411cc9e6a)
+![DeleteEntry](https://github.com/JRose31619/ShowCase/assets/135455213/3c0a5aed-0a4f-4d04-9e1f-fea7755a8d59)
+
 ### Validation
 Once users press submit, submitted information will be put into
 models and sent through validation. If user information is unacceptable,
@@ -88,8 +111,6 @@ and formatted based on the users selected data base.
 The interface for database data is created by passing in the users
 selected database. Users selected action is then ran by the interface
 instance passing in the users submitted data
-
-(Insert Images here)
 
 ## Class Library
 The back end class library has two layers
