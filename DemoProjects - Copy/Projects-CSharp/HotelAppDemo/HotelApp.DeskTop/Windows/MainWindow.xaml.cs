@@ -1,4 +1,5 @@
-﻿using HotelAppClassLibrary.Data;
+﻿using HotelApp.DeskTop.Windows;
+using HotelAppClassLibrary.Data;
 using HotelAppClassLibrary.DataBaseAccess;
 using HotelAppClassLibrary.DataModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,5 +48,14 @@ namespace HotelApp.DeskTop
 			checkInForm.PopulateCheckInfo(model);
 			checkInForm.Show();
 		}
-	}
+
+		private void getBookingsWindow_Click(object sender, RoutedEventArgs e)
+		{
+			DeleteBookings window = new DeleteBookings(_db);
+
+			window.Show();
+
+			Close();
+        }
+    }
 }

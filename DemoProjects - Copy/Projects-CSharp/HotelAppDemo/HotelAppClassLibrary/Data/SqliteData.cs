@@ -148,5 +148,10 @@ namespace HotelAppClassLibrary.Data
 
 			return output;
 		}
+
+		public List<BookingModel> GetAllBookings()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

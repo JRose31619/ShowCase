@@ -11,5 +11,6 @@ namespace HotelAppClassLibrary.Data
 		List<RoomTypeModel> GetAvailableRoomTypes(DateTime startDate, DateTime endDate);
 		RoomTypeModel GetRoomTypeById(int id);
 		List<BookingModel> SearchBookings(string lastName);
+		List<BookingModel> GetAllBookings();
 	}
 }
