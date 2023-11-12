@@ -4,17 +4,17 @@ Create, Read, Update, Delete functionality for their personal
 information. 
 
 ## Table of Contents
-1. [User Interface Layer](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#user-interface-layer)
-2. [Windows](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#windows)
-3. [Create User](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#create)
-4. [Add User](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#add)
-5. [Read User](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#read)
-6. [Update User](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#update)
-7. [Delete User](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#delete)
-8. [Validation](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#validation)
-9. [UI Actions](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#ui-actions)
+1. [User Interface Layer](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#user-interface-layer)
+2. [Windows](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#windows)
+3. [Create User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#create)
+4. [Add User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#add)
+5. [Read User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#read)
+6. [Update User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#update)
+7. [Delete User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#delete)
+8. [Validation](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#validation)
+9. [UI Actions](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#ui-actions)
 10. [Class Library](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase#class-library)
-11. [Data Bases](https://github.com/JRose31619/ShowCase/edit/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#databases)
+11. [Data Bases](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#databases)
 
 ## User Interface Layer
 The user interface was built with WPF. Having three layers of work
