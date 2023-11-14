@@ -1,5 +1,6 @@
 ﻿using HotelAppClassLibrary.Data;
 using HotelAppClassLibrary.DataModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -41,5 +42,14 @@ namespace HotelApp.DeskTop.Windows
 
 			Close();
         }
-    }
+
+		private void deleteButton_Click(object sender, RoutedEventArgs e)
+		{
+			var deleteConfirmation = App.serviceProvider.GetService<DeleteConfirmation>();
+			var model = (BookingModel)((Button)e.Source).DataContext;
+
+			deleteConfirmation.PopulateInformation(model);
+			deleteConfirmation.Show();
+		}
+	}
 }

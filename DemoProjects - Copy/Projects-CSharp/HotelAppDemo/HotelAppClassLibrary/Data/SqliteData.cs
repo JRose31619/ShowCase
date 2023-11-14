@@ -118,11 +118,6 @@ namespace HotelAppClassLibrary.Data
 											   connectionStringName).FirstOrDefault();
 		}
 
-		// Left here on 11/3/2023
-		// Just finished working the search bookings
-		// method. have to finish the app. Put it in repo
-		// and think of other small things to add to flesh
-		// out the app
 		public List<BookingModel> SearchBookings(string lastName)
 		{
 			string sql = @"	select [b].[Id], [b].[RoomId], [b].[GuestId], [b].[StartDate],
@@ -150,6 +145,11 @@ namespace HotelAppClassLibrary.Data
 		}
 
 		public List<BookingModel> GetAllBookings()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteBooking(string firstName, string lastName, DateTime startDate, DateTime endDate)
 		{
 			throw new NotImplementedException();
 		}

@@ -75,7 +75,10 @@ namespace EDBWPF
 
 				action.InsertNewUser(_db, userInput);
 
-				MessageBox.Show("New entry entered successfully! User Id is" );
+				// Come back to here, finish getting user Id
+				// with name and show it here in pop up
+
+				MessageBox.Show("New entry entered successfully!" );
 			}
 			else
 			{

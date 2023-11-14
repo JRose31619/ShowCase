@@ -36,7 +36,9 @@ namespace HotelApp.DeskTop
             titleText.Text = data.Title;
             roomNumberText.Text = data.RoomNumber;
             totalCostText.Text = String.Format("{0:C}", _data.TotalCost);
-        }
+			startDateText.Text = data.StartDate.ToString();
+			endDateText.Text = data.EndDate.ToString();
+		}
 
 		private void checkInUser_Click(object sender, RoutedEventArgs e)
 		{

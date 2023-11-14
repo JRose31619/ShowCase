@@ -73,15 +73,28 @@ namespace HotelAppClassLibrary.Data
 			return _db.LoadData<RoomTypeModel, dynamic>("spRoomTypes_GetById", new { id }, connectionStringName, true).FirstOrDefault();
 		}
 
-		// finished here on 11/07/2023
-		// working on back end call to bring all bookings
-		// to front end
 		public List<BookingModel> GetAllBookings()
 		{
 			return _db.LoadData<BookingModel, dynamic>("spBookings_GetAllBookings",
 											  new { },
 											  connectionStringName,
 											  true);
+		}
+
+		public void DeleteBooking(string firstName, string lastName, DateTime startDate, DateTime endDate)
+		{
+
+			string sql = "Select Id from dbo.Guests where FirstName = @firstName and LastName = @lastName";
+
+			int guestId = _db.LoadData<BookingModel, dynamic>(sql,
+													 new { firstName, lastName },
+													 connectionStringName,
+													 false).First().Id;
+
+			sql = @"Delete from dbo.Bookings where GuestsId = @guestId and
+					StartDate = @startDate and EndDate = @endDate";
+
+			_db.SaveData<dynamic>(sql, new {guestId,startDate,endDate }, connectionStringName,false);
 		}
 	}
 }

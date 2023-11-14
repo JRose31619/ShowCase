@@ -48,11 +48,17 @@
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <StackPanel x:Name="namePanel" Orientation="Horizontal" Grid.Row="0">
                             <TextBlock FontWeight="Bold" Margin="5">Reservation:</TextBlock>
                             <TextBlock Text="{Binding FirstName}" Margin="5" />
                             <TextBlock Text="{Binding LastName}" Margin="5" />
                         </StackPanel>
+
+                        <Button x:Name="deleteButton" Margin="5" Padding="10" Grid.Row="0" Grid.Column="1"
+                                Grid.RowSpan="4" VerticalAlignment="Center"
+                                Click="deleteButton_Click">
+                            Delete Booking.
+                        </Button>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
                             <TextBlock FontWeight="Bold" Margin="5">Room:</TextBlock>
@@ -71,12 +77,12 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="4">
                             <TextBlock FontWeight="Bold" Margin="5">Start:</TextBlock>
-                            <TextBlock Text="{Binding StartDate}" Margin="5"/>
+                            <TextBlock x:Name="startDateText"  Text="{Binding StartDate}" Margin="5"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="5">
                             <TextBlock FontWeight="Bold" Margin="5">End:</TextBlock>
-                            <TextBlock Text="{Binding EndDate}" Margin="5"/>
+                            <TextBlock x:Name="endDateText" Text="{Binding EndDate}" Margin="5"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

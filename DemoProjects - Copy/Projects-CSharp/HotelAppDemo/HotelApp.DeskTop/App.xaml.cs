@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using HotelAppClassLibrary.Data;
 using HotelAppClassLibrary.DataBaseAccess;
+using HotelApp.DeskTop.Windows;
 
 namespace HotelApp.DeskTop
 {
@@ -26,6 +27,7 @@ namespace HotelApp.DeskTop
 			var services = new ServiceCollection();
 			services.AddTransient<MainWindow>();
 			services.AddTransient<CheckInForm>();
+			services.AddTransient<DeleteConfirmation>();
 			services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 			services.AddTransient<ISqliteDataAccess, SqliteDataAccess>();
 
