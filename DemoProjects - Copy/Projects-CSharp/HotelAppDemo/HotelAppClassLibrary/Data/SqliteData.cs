@@ -146,12 +146,37 @@ namespace HotelAppClassLibrary.Data
 
 		public List<BookingModel> GetAllBookings()
 		{
-			throw new NotImplementedException();
+			string sql = @"	select [b].[Id], [b].[RoomId], [b].[GuestId], [b].[StartDate], 
+						 [b].[EndDate], [b].[CheckedIn], [b].[TotalCost],
+						 [g].[FirstName], [g].[LastName],
+						 [r].[RoomNumber], [r].[RoomTypeId], 
+						 [rt].[Title], [rt].[Description], [rt].[Price]
+						 from Bookings b
+						 inner join Guests g on g.Id = b.GuestId
+						 inner join Rooms r on r.Id = b.RoomId
+						 inner join RoomTypes rt on rt.Id = r.RoomTypeId";
+
+			return _db.LoadData<BookingModel, dynamic>(sql,
+								  new { },
+								  connectionStringName);
 		}
 
+
+		// finished here 11/15
+		// finished adding delete functionality for
+		// sqlite. Need to decide what to do next
 		public void DeleteBooking(string firstName, string lastName, DateTime startDate, DateTime endDate)
 		{
-			throw new NotImplementedException();
+			string sql = "Select Id from Guests where FirstName = @firstName and LastName = @lastName";
+
+			int guestId = _db.LoadData<BookingModel, dynamic>(sql,
+													 new { firstName, lastName },
+													 connectionStringName).First().Id;
+
+			sql = @"Delete from Bookings where GuestId = @guestId and
+					StartDate = @startDate and EndDate = @endDate";
+
+			_db.SaveData<dynamic>(sql, new { guestId, startDate, endDate }, connectionStringName);
 		}
 	}
 }
