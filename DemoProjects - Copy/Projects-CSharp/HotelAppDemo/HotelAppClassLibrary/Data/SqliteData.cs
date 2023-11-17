@@ -162,9 +162,7 @@ namespace HotelAppClassLibrary.Data
 		}
 
 
-		// finished here 11/15
-		// finished adding delete functionality for
-		// sqlite. Need to decide what to do next
+
 		public void DeleteBooking(string firstName, string lastName, DateTime startDate, DateTime endDate)
 		{
 			string sql = "Select Id from Guests where FirstName = @firstName and LastName = @lastName";

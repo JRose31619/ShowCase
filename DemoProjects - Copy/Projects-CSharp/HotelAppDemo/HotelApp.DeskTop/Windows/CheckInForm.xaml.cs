@@ -43,7 +43,10 @@ namespace HotelApp.DeskTop
 		private void checkInUser_Click(object sender, RoutedEventArgs e)
 		{
             _db.CheckGuestIn(_data.Id);
-            this.Close();
+
+            MessageBox.Show("Guest is now checked in!");
+
+            Close();
 		}
 	}
 }

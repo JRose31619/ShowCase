@@ -92,7 +92,7 @@
 
         </ListBox>
 
-        <Button x:Name="getBookingsWindow" Grid.Row="5" Grid.Column="3" Width="auto" Height="50"
+        <Button x:Name="getBookingsWindow" Grid.Row="1" Grid.Column="3" Width="auto" Height="50"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 Click="getBookingsWindow_Click" >
             Bookings

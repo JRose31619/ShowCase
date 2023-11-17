@@ -45,6 +45,8 @@ namespace HotelApp.DeskTop.Windows
 		{
 			_db.DeleteBooking(_data.FirstName,_data.LastName,_data.StartDate,_data.EndDate);
 
+			MessageBox.Show("Booking is deleted from records.");
+
 			Close();
 		}
 	}
