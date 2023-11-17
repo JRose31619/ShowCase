@@ -3,6 +3,19 @@ This application is designed to allow users to have full
 Create, Read, Update, Delete functionality for their personal
 information. 
 
+## Table of Contents
+1. [User Interface Layer](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#user-interface-layer)
+2. [Windows](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#windows)
+3. [Create User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#create)
+4. [Add User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#add)
+5. [Read User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#read)
+6. [Update User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#update)
+7. [Delete User](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#delete)
+8. [Validation](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#validation)
+9. [UI Actions](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#ui-actions)
+10. [Class Library](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase#class-library)
+11. [Data Bases](https://github.com/JRose31619/ShowCase/tree/main/DemoProjects%20-%20Copy/Projects-CSharp/SQLDemo/EmployeeDataBase/README.md#databases)
+
 ## User Interface Layer
 The user interface was built with WPF. Having three layers of work
 being done on the client side. 
@@ -23,16 +36,16 @@ fields. Users will submit the information, the application will tell
 user if the submission was successful. If the submission failed, the
 user will be told why it failed.
 
-![CreateEntrySuccess](https://github.com/JRose31619/ShowCase/assets/135455213/0ead4654-985c-4088-9c17-fc1c17243a6b)
-![CreateErrorMessage](https://github.com/JRose31619/ShowCase/assets/135455213/b5f5a94e-49de-4767-8233-d8aef300d9ec)
-![CreateEntryFail](https://github.com/JRose31619/ShowCase/assets/135455213/92508cc0-16ce-4e79-9fc1-79ccc9fb70ef)
+<img width="587" alt="CreateSuccessManagerInfo" src="https://github.com/JRose31619/ShowCase/assets/135455213/44993f59-35dc-4843-ba03-568513a1bebe">
+<img width="588" alt="CreateFail1" src="https://github.com/JRose31619/ShowCase/assets/135455213/b43ca775-2932-4222-bfa4-c75dde10ec4e">
+<img width="582" alt="CreateFail2" src="https://github.com/JRose31619/ShowCase/assets/135455213/8fa570b2-7861-4ab6-8aed-3fe727c83e63">
 
 ### Create
 The create window allows users to make new entries for new employees.
 Users can enter new employees both with and without employer information.
 
-![CreateHasEmployer](https://github.com/JRose31619/ShowCase/assets/135455213/ccf952d5-736d-45dc-964e-8f39644bd940)
-![CreateNoEmployer](https://github.com/JRose31619/ShowCase/assets/135455213/28491934-4df4-4e98-9e4a-e9e6c2c4c5ba)
+<img width="587" alt="CreateSuccessManagerInfo" src="https://github.com/JRose31619/ShowCase/assets/135455213/79a44271-c76f-4ed7-88a8-fdcc30826209">
+<img width="590" alt="CreateSuccessNoManager" src="https://github.com/JRose31619/ShowCase/assets/135455213/1fe7f2a9-8dfa-41fd-bc3b-e55dfb9370ed">
 
 ### Add
 Here, users will be able to make additions to preexisting entries.
